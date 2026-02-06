@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Rasa:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Devverse AI Design System - Spiritual & Peaceful */
+
+@layer base {
+  :root {
+    /* Refined Spiritual Color Palette */
+    --ivory-sand: 45 45% 97%;
+    --soft-parchment: 42 25% 94%;
+    --saffron-gold: 45 100% 39%;
+    --sage-green: 150 15% 37%;
+    --deep-charcoal: 0 0% 17%;
+    --earth-brown: 28 35% 19%;
+    --light-almond: 45 60% 96%;
+    --chip-bg: 42 30% 87%;
+    --cta-start: 45 80% 94%;
+    --cta-end: 45 85% 73%;
+    --hover-glow: 45 90% 85%;
+    
+    /* Semantic Tokens */
+    --background: var(--ivory-sand);
+    --foreground: var(--deep-charcoal);
+    --card: var(--light-almond);
+    --card-foreground: var(--deep-charcoal);
+    --popover: var(--light-almond);
+    --popover-foreground: var(--deep-charcoal);
+    --primary: var(--saffron-gold);
+    --primary-foreground: var(--ivory-sand);
+    --secondary: var(--sage-green);
+    --secondary-foreground: var(--ivory-sand);
+    --muted: var(--chip-bg);
+    --muted-foreground: var(--deep-charcoal);
+    --accent: var(--saffron-gold);
+    --accent-foreground: var(--earth-brown);
+    --destructive: 0 65% 55%;
+    --destructive-foreground: var(--parchment-light);
+    --border: var(--chip-bg);
+    --input: var(--light-almond);
+    --ring: var(--saffron-gold);
+    
+    /* Spiritual Design Elements */
+    --gradient-spiritual: linear-gradient(135deg, hsl(var(--cta-start)) 0%, hsl(var(--cta-end)) 100%);
+    --gradient-enlightenment: radial-gradient(circle, hsl(var(--saffron-gold) / 0.2) 0%, hsl(var(--saffron-gold) / 0.1) 70%, transparent 100%);
+    --gradient-peace: radial-gradient(circle at center, hsl(var(--ivory-sand)) 60%, hsl(var(--soft-parchment)) 100%);
+    --shadow-soft: 0 4px 20px hsl(var(--sage-green) / 0.15);
+    --shadow-divine: 0 4px 10px hsl(var(--saffron-gold) / 0.2);
+    --shadow-wisdom: 0 6px 12px hsl(var(--saffron-gold) / 0.4);
+    
+    --radius: 1rem;
+    --transition-peaceful: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --ivory-sand: 25 15% 8%;
+    --soft-parchment: 25 10% 12%;
+    --saffron-gold: 45 85% 60%;
+    --sage-green: 195 20% 40%;
+    --deep-charcoal: 25 25% 75%;
+    --light-almond: 25 10% 15%;
+    --background: var(--ivory-sand);
+    --foreground: var(--deep-charcoal);
+    --card: var(--light-almond);
+    --card-foreground: var(--deep-charcoal);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    background: var(--gradient-peace);
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-spiritual;
+  }
+}
+
+@layer components {
+  /* Spiritual Card Components */
+  .divine-card {
+    @apply bg-card/90 backdrop-blur-sm rounded-2xl shadow-[var(--shadow-soft)] border border-border/50;
+    transition: var(--transition-peaceful);
+  }
+
+  .divine-card:hover {
+    @apply shadow-[var(--shadow-divine)];
+    transform: translateY(-2px);
+  }
+
+  .enlightenment-glow {
+    position: relative;
+  }
+
+  .enlightenment-glow::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: var(--gradient-enlightenment);
+    border-radius: inherit;
+    z-index: -1;
+  }
+
+  /* Chat Bubble Styles */
+  .chat-bot {
+    @apply bg-primary/20 text-foreground rounded-2xl rounded-bl-sm p-4 max-w-md;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .chat-user {
+    @apply bg-card text-card-foreground rounded-2xl rounded-br-sm p-4 max-w-md ml-auto;
+    box-shadow: var(--shadow-soft);
+  }
+
+  /* Button Variants */
+  .btn-spiritual {
+    @apply px-6 py-3 rounded-xl font-bold font-spiritual;
+    background: var(--gradient-spiritual);
+    color: hsl(var(--earth-brown));
+    box-shadow: var(--shadow-divine);
+    transition: var(--transition-peaceful);
+  }
+
+  .btn-spiritual:hover {
+    box-shadow: var(--shadow-wisdom);
+    transform: translateY(-2px);
+  }
+
+  .btn-peace {
+    @apply px-4 py-2 rounded-lg font-medium;
+    background: hsl(var(--chip-bg));
+    color: hsl(var(--saffron-gold));
+    transition: var(--transition-peaceful);
+  }
+
+  .btn-peace:hover {
+    @apply shadow-md;
+    transform: translateY(-1px) scale(1.02);
+  }
+
+  /* Floating Animation */
+  .float-gentle {
+    animation: float-gentle 6s ease-in-out infinite;
+  }
+
+  .float-petals {
+    animation: float-petals 8s ease-in-out infinite;
+  }
+
+  /* Verse Card */
+  .verse-card {
+    @apply divine-card p-6 space-y-4;
+    background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--accent) / 0.3) 100%);
+  }
+
+  /* Sanskrit Text Styling */
+  .sanskrit-text {
+    @apply text-primary font-spiritual text-lg leading-relaxed;
+    font-style: italic;
+  }
+
+  .spiritual-divider {
+    @apply w-16 h-px bg-gradient-to-r from-transparent via-primary to-transparent mx-auto;
+  }
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+@keyframes float-petals {
+  0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); opacity: 0.7; }
+  25% { transform: translateY(-8px) translateX(2px) rotate(90deg); opacity: 1; }
+  50% { transform: translateY(-15px) translateX(0px) rotate(180deg); opacity: 0.8; }
+  75% { transform: translateY(-8px) translateX(-2px) rotate(270deg); opacity: 1; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: var(--shadow-divine); }
+  50% { box-shadow: var(--shadow-wisdom); }
+}
+
+@keyframes om-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
